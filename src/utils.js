@@ -67,7 +67,3 @@ export function px(value) {
 export function translate3d(x = 0, y = 0, z = 0) {
   return `translate3d(${px(x)}, ${px(y)}, ${px(z)})`;
 }
-
-export function transform(...transformFns) {
-  return `transform: ${transformFns.join(" ")}`;
-}

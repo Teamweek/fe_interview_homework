@@ -22,7 +22,7 @@ function defaultDragImage(node) {
 }
 
 let cachedCurrentTarget;
-let cachedOffestCoords;
+let cachedOffsetCoords;
 let cachedDragImage;
 
 const dndMediator = new Mediator("idle", {
@@ -35,7 +35,7 @@ const dndMediator = new Mediator("idle", {
       const rect = cachedCurrentTarget.getBoundingClientRect();
       const offsetX = evt.clientX - rect.left;
       const offsetY = evt.clientY - rect.top;
-      cachedOffestCoords = [offsetX, offsetY];
+      cachedOffsetCoords = [offsetX, offsetY];
       cachedDragImage = defaultDragImage(cachedCurrentTarget);
 
       setNodeStyle(cachedDragImage, {
@@ -57,8 +57,8 @@ const dndMediator = new Mediator("idle", {
     mousemove(evt) {
       setNodeStyle(cachedDragImage, {
         transform: translate3d(
-          evt.clientX - cachedOffestCoords[0],
-          evt.clientY - cachedOffestCoords[1]
+          evt.clientX - cachedOffsetCoords[0],
+          evt.clientY - cachedOffsetCoords[1]
         ),
       });
     },

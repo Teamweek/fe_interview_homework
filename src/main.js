@@ -6,9 +6,9 @@ const dragme = createDOMNode(
   "div",
   {
     onmousedown: onDrag,
-    className: "dragme",
+    className: "p-2 bg-indigo-500 text-white rounded-md",
   },
   "Drag me"
 );
 
-document.querySelector("#app").appendChild(dragme);
+document.querySelector("#drop-area-a").appendChild(dragme);
