@@ -5,7 +5,7 @@
 Hello there future Toggl Plan Frontend Developer 👋 Your mission, should you choose to accept it, is to add drop functionality to this template:
 
 - "drag me" element should be draggable between `#drop-area-a` and `#drop-area-b`
-- please add drop shadow to indicate potential new position for the element
+- please add drop shadow to indicate potential new position for the element. Note: drop shadow is an element (not the css property), similar to a drag image. Might be a clone of original dragged element or repositioned original element itself.
 - if dropped outside drop area, drag image should transition back to initial position
 - if dropped onto drop area, drag image should transition to the new position
 
