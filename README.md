@@ -10,6 +10,7 @@ Hello there future Toggl Plan Frontend Developer 👋 Your mission, should you c
 - if dropped onto drop area, drag image should transition to the new position
 
 ![Scheme](./scheme.png)
+![](https://user-images.githubusercontent.com/195229/141466967-6e79df53-8da0-4e33-8967-d3ca10e6b02c.gif)
 
 Note: this template has basic layout and some parts of the interaction figured out for you.
 
