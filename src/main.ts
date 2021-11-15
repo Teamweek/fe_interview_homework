@@ -8,7 +8,7 @@ const dragme = createDOMNode(
     onmousedown: onDrag,
     className: "p-2 bg-indigo-500 text-white rounded-md",
   },
-  "Drag me"
+  "Drag me",
 );
 
-document.querySelector("#drop-area-a").appendChild(dragme);
+document?.querySelector("#drop-area-a")?.appendChild(dragme);
