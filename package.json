@@ -1,16 +1,17 @@
 {
-  "name": "live-coding-exercise",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.3.7",
-    "postcss": "^8.3.9",
-    "tailwindcss": "^2.2.16",
-    "vite": "^2.6.0",
-    "typescript": "^4.4.4"
-  }
+    "name": "live-coding-exercise",
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "serve": "vite preview"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.3.7",
+        "postcss": "^8.3.9",
+        "tailwindcss": "^2.2.16",
+        "vite": "^2.6.0",
+        "typescript": "^4.4.4",
+        "prettier": "^2.3.2"
+    }
 }
