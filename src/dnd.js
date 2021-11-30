@@ -1,5 +1,8 @@
 import { Mediator } from "./mediator";
+import { ShadowElement } from "./shadow";
 import { px, setNodeStyle, translate3d } from "./utils";
+
+const SHADOW_ID = "dnd-drag";
 
 function reset(mediator) {
   document.removeEventListener("mousemove", mediator.receive);
@@ -21,9 +24,16 @@ function defaultDragImage(node) {
   return clone;
 }
 
+function dragEventIsValid(elementBeingDragged, element) {
+  return elementBeingDragged
+    && element.getAttribute("data-draggable")
+    && element !== elementBeingDragged.parentNode;
+}
+
 let cachedCurrentTarget;
 let cachedOffsetCoords;
 let cachedDragImage;
+let elementBeingDragged;
 
 const dndMediator = new Mediator("idle", {
   idle: {
@@ -44,8 +54,12 @@ const dndMediator = new Mediator("idle", {
         height: px(rect.height),
       });
 
+      elementBeingDragged = evt.target;
+
       document.addEventListener("mousemove", dndMediator.receive);
       document.addEventListener("mouseup", dndMediator.receive);
+      document.addEventListener("mouseover", dndMediator.receive);
+      document.addEventListener("mouseout", dndMediator.receive);
 
       dndMediator.setState("dragging");
 
@@ -62,10 +76,22 @@ const dndMediator = new Mediator("idle", {
         ),
       });
     },
-    mouseup() {
+    mouseup(evt) {
+      if (dragEventIsValid(elementBeingDragged, evt.target)) {
+        evt.target.appendChild(elementBeingDragged);
+        ShadowElement.remove(SHADOW_ID);
+      }
       reset(dndMediator);
       dndMediator.setState("idle");
     },
+    mouseout() {
+      ShadowElement.remove(SHADOW_ID);
+    },
+    mouseover(evt) {
+      if (dragEventIsValid(elementBeingDragged, evt.target)) {
+        ShadowElement.create(evt.target, elementBeingDragged, SHADOW_ID);
+      }
+    }
   },
 });
 
