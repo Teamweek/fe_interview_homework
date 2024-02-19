@@ -40,8 +40,10 @@
       accessToken.set(tokenResult.data.access_token)
     }
 
-    const userResult = await api.get<MeResponse>('me')
-    user.set(userResult.data)
+    if ($accessToken) {
+      const userResult = await api.get<MeResponse>('me')
+      user.set(userResult.data)
+    }
 
     isLoading = false
     isLogged = !!$accessToken
@@ -61,6 +63,9 @@
     </a>
   </div>
 {:else}
-  <pre>Welcome, {$user.name}</pre>
+  <div class="m-2 flex items-center gap-2">
+    <img src={$user.picture_url} alt={$user.name} class="rounded-full" />
+    <p>Welcome, {$user.name}</p>
+  </div>
   <Timeline />
 {/if}

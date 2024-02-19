@@ -10,7 +10,7 @@ type User = {
   legal_consent_pending: boolean
   manager: null
   name: string
-  picture_url: null
+  picture_url: string
   preferences: {
     hide_weekends: boolean
     highlight_done_tasks: boolean
