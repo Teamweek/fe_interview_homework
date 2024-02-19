@@ -1,30 +1,24 @@
 export default {
-	singleQuote: true,
-	trailingComma: 'es5',
-	printWidth: 80,
-	arrowParens: 'always',
-	semi: true,
-	useTabs: true,
-	svelteSortOrder: 'options-scripts-styles-markup',
-	bracketSameLine: true,
-	plugins: [
-		'prettier-plugin-svelte',
-		'prettier-plugin-organize-imports',
-		'prettier-plugin-tailwindcss',
-	],
-	overrides: [
-		{
-			files: ['*.scss', '*.css'],
-			options: {
-				singleQuote: false,
-			},
-		},
-		{
-			files: '*.svelte',
-			options: {
-				parser: 'svelte',
-				organizeImportsSkipDestructiveCodeActions: true,
-			},
-		},
-	],
-};
+  arrowParens: 'always',
+  bracketSpacing: true,
+  bracketSameLine: false,
+  jsxSingleQuote: true,
+  printWidth: 120,
+  quoteProps: 'as-needed',
+  semi: false,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'all',
+  useTabs: false,
+  svelteSortOrder: 'options-scripts-styles-markup',
+  plugins: ['prettier-plugin-svelte', 'prettier-plugin-organize-imports', 'prettier-plugin-tailwindcss'],
+  overrides: [
+    {
+      files: '*.svelte',
+      options: {
+        parser: 'svelte',
+        organizeImportsSkipDestructiveCodeActions: true,
+      },
+    },
+  ],
+}
